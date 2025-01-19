@@ -111,9 +111,11 @@
 </head>
 <body>
     <div id="gameInstructions">
-        Tekan untuk memulai!<br>
+        Tekan SPASI untuk memulai!<br>
         Tekan tombol PANAH ATAS untuk melompat!<br>
+        Tekan tombol PANAH BAWAH untuk turun lebih cepat<br>
         Hindari rintangan dan kumpulkan koin emas<br>
+        High Score: ${highScore}
     </div>
     <canvas id="gameCanvas" width="800" height="400"></canvas>
     <button id="startBtn">Tekan untuk Mulai</button>
@@ -604,10 +606,10 @@
         function updateTimeState() {
             if (score > 2000) {
                 const timeStates = [
-                    TIME_STATES.SUNRISE,
-                    TIME_STATES.DAY,
-                    TIME_STATES.SUNSET,
-                    TIME_STATES.NIGHT
+                    TIME_STATES.DAY,      // Mulai dari siang
+                    TIME_STATES.SUNSET,   // Kemudian senja
+                    TIME_STATES.NIGHT,    // Lalu malam
+                    TIME_STATES.SUNRISE   // Terakhir matahari terbit
                 ];
                 const cycleLength = 500; // Panjang siklus dalam poin
                 const currentCycle = Math.floor((score - 2000) / cycleLength) % timeStates.length;
